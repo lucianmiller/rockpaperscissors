@@ -4,10 +4,10 @@ using RockPaperScissors.Models;
 namespace RockPaperScissors.Tests
 {
   [TestClass]
-  public class RockPaperScissorsTests
+  public class GameTests
   {
     [TestMethod]
-    public void RockPaperScissorsConstructor_CreatesInstanceOfGame_Game()
+    public void GameConstructor_CreatesInstanceOfGame_Game()
     {
       string playerOneName = "Ryan";
       string playerTwoName = "Shane";
