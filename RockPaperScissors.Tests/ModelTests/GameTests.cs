@@ -16,7 +16,7 @@ namespace RockPaperScissors.Tests
     }
 
     [TestMethod]
-    public void GetUserNames_InputPlayerOneName_String()
+    public void GameConstructor_InputPlayerOneName_String()
     {
       string playerOneName = "Ryan";
       string playerTwoName = "Shane";
@@ -25,14 +25,44 @@ namespace RockPaperScissors.Tests
       Assert.AreEqual(playerOneName, result);
     }
 
-        [TestMethod]
-    public void GetUserNames_InputPlayerTwoName_String()
+    [TestMethod]
+    public void GameConstructor_InputPlayerTwoName_String()
     {
       string playerOneName = "Ryan";
       string playerTwoName = "Shane";
       Game newGame = new Game(playerOneName, playerTwoName);
       string result = newGame.Player2;
       Assert.AreEqual(playerTwoName, result);
+    }
+
+    [TestMethod]
+    public void DetermineWinner_CheckIfTie_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("rock", "rock");
+      Assert.AreEqual("It's a tie!", winner);
+    }
+
+    [TestMethod]
+    public void DetermineWinner_CheckIfPlayer1Winner_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("rock", "scissors");
+      Assert.AreEqual("Ryan wins!", winner);
+    }
+
+    [TestMethod]
+    public void DetermineWinner_CheckIfPlayer2Winner_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("rock", "paper");
+      Assert.AreEqual("Shane wins!", winner);
     }
   }
 }
