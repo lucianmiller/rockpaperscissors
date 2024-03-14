@@ -17,11 +17,15 @@ namespace RockPaperScissors.Models
 
     public string DetermineWinner(string p1, string p2)
     {
-      if (p1 == p2)
+      if (!RPS.ContainsKey(p1.ToLower()) || !RPS.ContainsKey(p2.ToLower()))
+      {
+        return "Invalid entry";
+      }
+      if (p1.ToLower() == p2.ToLower())
       {
         return "It's a tie!";
       }
-      if (RPS[p1] == p2)
+      if (RPS[p1.ToLower()] == p2.ToLower())
       {
         return Player1 + " wins!";
       }

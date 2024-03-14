@@ -64,6 +64,36 @@ namespace RockPaperScissors.Tests
       string winner = newGame.DetermineWinner("rock", "paper");
       Assert.AreEqual("Shane wins!", winner);
     }
+
+    [TestMethod]
+    public void Sanitizing_LowercaseInputs_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("roCk", "PaPer");
+      Assert.AreEqual("Shane wins!", winner);
+    }
+
+    [TestMethod]
+    public void DetermineWinner_CheckPlayer1ValidInput_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("Bilbo", "paper");
+      Assert.AreEqual("Invalid entry", winner);
+    }
+
+    [TestMethod]
+    public void DetermineWinner_CheckPlayer2ValidInput_String()
+    {
+      string playerOneName = "Ryan";
+      string playerTwoName = "Shane";
+      Game newGame = new Game(playerOneName, playerTwoName);
+      string winner = newGame.DetermineWinner("rock", "Gandalf");
+      Assert.AreEqual("Invalid entry", winner);
+    }
   }
 }
 
